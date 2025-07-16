@@ -1,21 +1,19 @@
 FROM php:8.2-fpm
 
-# RUN apt-get update && apt-get install -y \
-#     libpng-dev \
-#     libjpeg-dev \
-#     libfreetype6-dev \
-#     libzip-dev \
-#     unzip \
-#     && docker-php-ext-install \
-#     bcmath \
-#     pcntl \
-#     gd \
-#     ftp
-
-    RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     libzip-dev \
     unzip \
-    && docker-php-ext-install zip
+    libssh2-1-dev \
+    && docker-php-ext-install \
+    pcntl \
+    gd \
+    ftp \
+    bcmath \
+    zip
+
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

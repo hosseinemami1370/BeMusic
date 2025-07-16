@@ -46,3 +46,5 @@ storageState.json
 resources/lang/*.json
 # manifest file will be created during installation
 public/manifest.json
+
+.history

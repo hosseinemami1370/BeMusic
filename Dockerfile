@@ -20,6 +20,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 
 COPY . .
+COPY . /var/www
+WORKDIR /var/www
 
 RUN composer install
 
